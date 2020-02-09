@@ -1,0 +1,15 @@
+version: "3"
+services: 
+  pg-tds:
+    image: dalongrong/pgspider:tds
+    ports:
+      - "5432:5432"
+    environment:
+      - "POSTGRES_PASSWORD:dalong"
+  db:
+   image: microsoft/mssql-server-linux
+   environment:
+   - "ACCEPT_EULA=Y"
+   - "SA_PASSWORD=Dalong!123%"
+   ports:
+   - "1433:1433"
