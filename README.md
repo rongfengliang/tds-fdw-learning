@@ -4,6 +4,19 @@
 
 ```code
 
+init some datas:
+in sql server:
+create DATABASE appdemos;
+use appdemos;
+create table apps (
+    id int,
+    age int,
+    name VARCHAR(256)
+);
+insert into apps VALUES(1,22,'appdemo');
+
+in pg database:
+
 CREATE EXTENSION tds_fdw;
 CREATE SERVER mssql_svr
 	FOREIGN DATA WRAPPER tds_fdw
