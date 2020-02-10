@@ -14,19 +14,19 @@ create table apps (
     name VARCHAR(256)
 );
 insert into apps VALUES(1,22,'appdemo');
-
+insert into apps VALUES(2,30,'荣锋亮');
 in pg database:
 
 CREATE EXTENSION tds_fdw;
 CREATE SERVER mssql_svr
 	FOREIGN DATA WRAPPER tds_fdw
-	OPTIONS (servername 'db', port '1433', database 'appdemos');
+	OPTIONS (servername 'db', port '1433', database 'appdemos',msg_handler 'notice',character_set 'UTF-8');
 
 CREATE USER MAPPING FOR postgres
 	SERVER mssql_svr 
 	OPTIONS (username 'sa', password 'Dalong!123%');
 
-CREATE FOREIGN TABLE mssql_table (
+CREATE FOREIGN TABLE apps (
 	id integer,
 	age integer,
     name varchar)
@@ -39,5 +39,5 @@ IMPORT FOREIGN SCHEMA dbo
 	INTO public
 	OPTIONS (import_default 'true');
 
-
+select * from  apps
 ```

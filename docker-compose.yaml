@@ -11,5 +11,7 @@ services:
    environment:
    - "ACCEPT_EULA=Y"
    - "SA_PASSWORD=Dalong!123%"
+   - "MSSQL_LCID=2052"
+   - "MSSQL_COLLATION=Chinese_PRC_CI_AS"
    ports:
    - "1433:1433"
